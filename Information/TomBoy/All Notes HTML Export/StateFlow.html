@@ -1,0 +1,121 @@
+<html xmlns:tomboy="http://beatniksoftware.com/tomboy" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><title>StateFlow</title><style type="text/css">
+        
+	body {  }
+	h1 { font-size: xx-large;
+     	     font-weight: bold;
+     	     border-bottom: 1px solid black; }
+	div.note {
+		   position: relative;
+		   display: block;
+		   padding: 5pt;
+		   margin: 5pt; 
+		   white-space: -moz-pre-wrap; /* Mozilla */
+ 	      	   white-space: -pre-wrap;     /* Opera 4 - 6 */
+ 	      	   white-space: -o-pre-wrap;   /* Opera 7 */
+ 	      	   white-space: pre-wrap;      /* CSS3 */
+ 	      	   word-wrap: break-word;      /* IE 5.5+ */ }
+	</style></head><body><div class="note" id="StateFlow"><a name="stateflow"></a><h1>StateFlow</h1><span style="font-size:large"> 
+<b>What is a history junction?</b></span><span style="font-size:large">
+
+history junction is used to store the last active sub state inside a state machine and it will overwrite the default active state.
+so whenever the machine enters the state again,the last active state becomes the default state by which we assure that the last valid settings made are not lost
+
+<b>what are flow charts?</b></span><span style="font-size:large">
+
+Flow charts or Flow Graphs are means of designing loop statements alike for,switch,case inside state machines.
+we can design for loops,switch cases,if else loops,<b><span style="background:yellow">customized </span></b></span><span style="font-size:large"></span><span style="font-size:large">logic's using flow charts.when the system behavior involves more conditional logics involving if,switch logics it is better to design it using flow graphs
+
+<b>when flow charts are used and when state flow is used?</b></span><span style="font-size:large">
+
+Flow Graphs are used in more loop based environment whereas stateflow involves more complex logic's.
+But the Choice is based on the taste of the developer and the application
+
+<b>when to use stateflow and when to use simulink?</b></span><span style="font-size:large">
+<strike>
+</strike></span><span style="font-size:large">stateflow is used for discrete time systems and simulink is used for continuous time systems
+But whatever written in C can be designed in both simulink and stateflow.
+But stateflow increases model readability for discrete time system in comparison to designing the same in simulink
+
+<b>what are junctions?</b></span><span style="font-size:large">
+
+when there are more than one condition involving a transition like that of a switch case,junctions are used.But it does not have any action statements
+
+<b>what is a trigger and action?</b></span><span style="font-size:large">
+
+triggers are conditions governing the transition of one state to another
+whereas actions are statements executed once the state is reached
+
+<b>how to insert a simulink subsystem inside a stateflow chart?</b></span><span style="font-size:large">
+
+using simulink function block ,one can include simulink model inside stateflow.
+Not only simulink blocks,also m function blocks and truth tables can be inserted in to stateflow using dedicated blocks
+
+<b>what is mealy model and what is moore model?which one is used in stateflow?</b></span><span style="font-size:large">
+
+moore model depends only on states
+
+mealy model depends on both inputs and states (transitions and states)
+
+stateflow supports three types of model(by going to the explore window you can find the type of chart)
+1.classic
+2.mealy
+3.moore
+
+stateflow by default uses classic model <b><span style="background:yellow">which closely follows mealy model.confirm this</span></b></span><span style="font-size:large"></span><span style="font-size:large"><strike>
+</strike></span><span style="font-size:large">
+<b>what are events?in what way events differ from actions or triggers?where are events used in contrary to triggers?</b></span><span style="font-size:large">
+
+events are empty function blocks and more powerful than actions.
+events can be used as both triggers and actions.
+events are commonly used in parallel processing states.
+events are broadcast across the chart.
+
+<b>what are the two types of state machines?</b></span><span style="font-size:large">
+
+ex-or execution and parallel execution state machines
+
+<b>what is a default transition in stateflow?</b></span><span style="font-size:large">
+
+default transition is the zeroth state a stateflow starts with.
+
+<b>how to make while loops in entry conditions inside states?</b></span><span style="font-size:large">
+
+by dragging from the state boundary you can simulate a while loop instead of just making the entry condition executing once
+
+<b>example for parallel processing states?</b></span><span style="font-size:large">
+
+3 digit counter
+
+<b>are parallel processing states really parallel?</b></span><span style="font-size:large">
+
+no they are just concurrent and they are not parallel.
+the execution will happen based on priorities either machine made or user defined
+
+<b>what are the three conditions in which a state can be executed?
+which conditions happen only once inside the state execution?</b></span><span style="font-size:large">
+
+entry
+during
+exit
+
+entry and exit happens only once during the state execution
+
+<b>how to change the priority in parallel processing states?</b></span><span style="font-size:large">
+
+priority can be changed using checking the user defined priorities in the state flow chart
+
+<b>what is the sequence in which the stateflow executes?</b></span><span style="font-size:large">
+
+stateflow does not have any sequence.It simply relies on triggers.The evaluation of triggers are based on the execution order of the triggers which are either user defined or machine made.
+
+<b>how to implement delays inside stateflow?</b></span><span style="font-size:large">
+
+by using local variables or by changing the priority of the block execution
+
+<b>can i have a default transition for a parallel processing state?</b></span><span style="font-size:large">
+
+No,Parallel processing states do not have default transitions
+
+</span>
+
+</div></body></html>

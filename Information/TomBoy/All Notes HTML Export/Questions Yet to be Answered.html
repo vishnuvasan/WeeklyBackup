@@ -1,0 +1,156 @@
+<html xmlns:tomboy="http://beatniksoftware.com/tomboy" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Questions Yet to be Answered</title><style type="text/css">
+        
+	body {  }
+	h1 { font-size: xx-large;
+     	     font-weight: bold;
+     	     border-bottom: 1px solid black; }
+	div.note {
+		   position: relative;
+		   display: block;
+		   padding: 5pt;
+		   margin: 5pt; 
+		   white-space: -moz-pre-wrap; /* Mozilla */
+ 	      	   white-space: -pre-wrap;     /* Opera 4 - 6 */
+ 	      	   white-space: -o-pre-wrap;   /* Opera 7 */
+ 	      	   white-space: pre-wrap;      /* CSS3 */
+ 	      	   word-wrap: break-word;      /* IE 5.5+ */ }
+	</style></head><body><div class="note" id="Questions Yet to be Answered"><a name="questions yet to be answered"></a><h1></h1><span style="font-size:large">
+
+Task 
+
+<b>what are void pointers?</b></span><span style="font-size:large">
+
+void pointers are used to create data structures and to grow the stack.
+void pointers are used in a situation where the actual datatype given by the user is not known
+void pointers can be type casted to the destination data type once the actual date type is known
+
+<b>what are null pointers?</b></span><span style="font-size:large">
+
+(void *)0;
+null pointers are pointers which point to no memory location which means it is pointed to 0.
+<strike>
+</strike></span><span style="font-size:large"><b>what is MISRA?How many rules are there in the MISRA Guidelines?</b></span><span style="font-size:large">
+
+Motor Industry Software Reliability Association.
+128 rules are governing the embedded development.
+No,Now there are totally 142 rules governing the MISRA Rules
+
+<b>what is the expansion for MISRA?</b></span><span style="font-size:large">
+
+Motor Industry Software Reliability Association
+
+<b>what are the different storage specifiers in C?
+</b></span><span style="font-size:large">
+C supports four storage specifier classes.They are extern,static,register,auto
+
+<b><span style="font-family:monospace">How to implement inline functions in c?</span></b></span><span style="font-size:large"></span><span style="font-size:large">
+
+using the inline keyword.small symbolic constant replacements can be done using the #define constants
+
+<b>can strucures be used within unions?can unions be used within structures?</b></span><span style="font-size:large">
+
+Both are allowed in C.But it depends on the taste of the programmer to use the type he want
+
+<b>what are the different type specifiers of the variables in c?
+</b></span><span style="font-size:large">
+There are three type specifiers.
+const,volatile and restrict
+
+what happens when i declare a recursive function as inline?
+reentrancy problem will happen and the core might be dumped
+
+what is the return type of ISRs?
+none.ISRs cannot return values
+
+can i use printf inside ISR?
+no.printf are known to cause reentrancy problems in ISR
+
+can i write a big program inside ISR?
+ISRs are meant to be short and sweet
+
+can i call a function inside ISR?
+yes,possible
+
+
+<b><span style="background:yellow"><span style="font-size:xx-large">what is masking?</span></span></b></span><span style="font-size:large"></span><span style="font-size:large"></span><span style="font-size:large">
+
+Read More about Linked Lists and Code about Linked Lists
+
+Read more about structures and pointers
+
+Read more about pointers and Indirection s
+
+Read thoroughly about CAN<strike>
+
+</strike></span><span style="font-size:large">when union is preferred instead of structures??in what case?<b>
+</b></span><span style="font-size:large">
+And More insight in to <b><span style="background:yellow"><a style="color:#204A87" href="my_space/MATLAB.html">MATLAB</a></span></b></span><span style="font-size:large"></span><span style="font-size:large"></span><span style="font-size:large"> and Modeling?
+
+How CAN fits in OSI Layered Architecture?
+
+Why is a Structure used and Where is it Used?
+
+Read more about Linked List and how linked list can be Implem<span style="font-family:monospace">ented?
+
+</span></span><span style="font-size:large">why are always seeing more integrators in the model than differentiators?why differentiators are less used in real time control system?
+
+what do you mean by hysteresis?where do you really use it in system perspective?<strike>
+</strike></span><span style="font-size:large">equivalent of hysteresis in simulink is relay block
+
+CAN is half duplex
+
+CAN is asynchronous
+
+
+<b>Deadline
+
+12.05.2013</b></span><span style="font-size:large">
+
+
+
+<strike>what is the difference between Atomic Subsystem and Subsystem?
+Read the different blocks present
+
+where the integrators and differentiator blocks used in a model/system?
+
+Read about S Functions?</strike></span><span style="font-size:large">
+
+<b><strike><span style="background:yellow"><span style="font-size:xx-large">Read about Legacy coder and Target Function Libraries?</span></span></strike></b></span><span style="font-size:large"></span><span style="font-size:large"></span><span style="font-size:large"></span><span style="font-size:large">
+
+<strike>difference between scope and floating scope?
+
+what is a test point in simulink?</strike></span><span style="font-size:large">
+
+<strike>what is a algebraic loop error in simulink?</strike></span><span style="font-size:large">
+
+<strike>How pointers can be implemented in <a style="color:#204A87" href="my_space/MATLAB.html">matlab</a></strike></span><span style="font-size:large"><strike>?How can an address be passed in matla1b?
+To Be Frank,pointers are not the native datatypes in matla1b infact matla1b is written in such a way to avoid pointers.
+but still this can be simulated using a handle object class in matla1b.create a class with a single object and you can access this object via structural syntaxes like a.b=45 like that.
+that is the only way to simulate pointers in matla1b.one more feature which you would have used and not come across is copy_on_write variables.when i say x=x+2 the matla1b compiler does not copy the variable and manipulate the calculation and store it again.here the copying does not happen.the actual location itself is changed with the value.this is very similar to pointer methods by writing in to a memory location but these are not flexible enough for usage as they are matla1b backend specific</strike></span><span style="font-size:large">
+
+<strike>what are the built in datatypes in MATLa1b?
+uint8,uint16,int32
+int8,int16,int32,
+short,
+long
+
+int64,uint64 are not supported by matla1b</strike></span><span style="font-size:large">
+
+
+<strike>difference between ground and terminator block?
+ground block is used to dummy unconnected input ports whereas terminator block is used to dummy unconnected output ports</strike></span><span style="font-size:large">
+
+<strike>Diff between Bus and MUX?
+Bus can accept different types of signals but the signals supplied to the MUX block should be of the same Type</strike></span><span style="font-size:large">
+
+<strike>Read About Different Simulink Blocks</strike></span><span style="font-size:large">
+
+<b><strike><span style="background:yellow">which model does the <a style="color:#204A87" href="StateFlow.html">stateflow</a></span></strike></b></span><span style="font-size:large"><b><strike><span style="background:yellow"> follow?Mealy or Moore
+which model is commonly used and Why?</span></strike></b></span><span style="font-size:large"><strike></strike></span><span style="font-size:large"><strike>
+It is possible to design both the models in <a style="color:#204A87" href="StateFlow.html">stateflow</a></strike></span><span style="font-size:large"><strike> by right clicking the machine and selecting the type of model which we wish to use
+mealy model is dependent only on the states and transitions where as moore model depends on states
+default are classic machines in contrary to mealy or moore.
+But mealy is the default transition as it depends on both states and transtions</strike></span><span style="font-size:large">
+
+
+</span></div></body></html>

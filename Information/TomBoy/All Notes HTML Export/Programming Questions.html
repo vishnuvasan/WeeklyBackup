@@ -1,0 +1,178 @@
+<html xmlns:tomboy="http://beatniksoftware.com/tomboy" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Programming Questions</title><style type="text/css">
+        
+	body {  }
+	h1 { font-size: xx-large;
+     	     font-weight: bold;
+     	     border-bottom: 1px solid black; }
+	div.note {
+		   position: relative;
+		   display: block;
+		   padding: 5pt;
+		   margin: 5pt; 
+		   white-space: -moz-pre-wrap; /* Mozilla */
+ 	      	   white-space: -pre-wrap;     /* Opera 4 - 6 */
+ 	      	   white-space: -o-pre-wrap;   /* Opera 7 */
+ 	      	   white-space: pre-wrap;      /* CSS3 */
+ 	      	   word-wrap: break-word;      /* IE 5.5+ */ }
+	</style></head><body><div class="note" id="Programming Questions"><a name="programming questions"></a><h1></h1><span style="font-size:large">
+
+
+const volatile can be used together.
+usage is whenever the reading address is fixed and the value can be dynamically changed by the user
+in the case of read only memory registers/multi threaded memory/memory mapped registers also we can use const volatile
+
+Example:
+
+int *keyboard_input;
+
+keyboard_input=&amp;user_input;
+
+const volatile *keyboard_input;
+
+// In this case the address to be read from is fixed but the actual value present in the address changes dynamically as per the user input
+
+<strike>
+</strike></span><span style="font-size:large">extern variables-implicit declaration without definition.
+Only the owner module should define it which means it can have innumerous declaration but only one definition or initialisation.
+you can define an extern variable commonly in a header and include it all the source files which you want to use on.
+The initialisation can still be done on any source file globally Once
+
+
+static variables-scope within the file.It will maintain its value even between subsequent function calls/Invocations.The only type of Variable to be initialised with 0 always along with extern variables.
+It is useless to define the static variable in a header file and including it in every other c file because we would want the static variable to maintain the same value throughout the program execution.
+But by defining it in a common header would create local copy of that variable which would not be the actual need of the programmer.
+Also extern and static are mutually exclusive<strike>
+
+</strike></span><span style="font-size:large">volatile-for hardware register variables/multi threading programs/Interrupt Service routines.example : used to read the controller pin data
+
+static-to maintain the count value throughout the run of the program
+example counters,values which should exist over different function traversal and also when one function want to give away its output to other function during intermediate function calls
+static locals are only available with in the function while static globals are available only with in the source file it is used
+it is perfectly legal to use the same name for different static variables in different source files<strike>
+
+</strike></span><span style="font-size:large"><b>why are functions declared static?what is the use of it?</b></span><span style="font-size:large">
+to simulate the behaviour of private classes similar to c++ within the file.
+functions declared as static are only available within the same translational unit.so it helps the compiler to have the same variable names without clash.<strike>
+</strike></span><span style="font-size:large">static functions are not much memory efficient in comparison to auto functions as they are allocated in stack and dereferenced..
+its always a best programming practice to declare a function as static if it is not used anywhere else.it is a means of indirectly telling the compiler that the function is local
+
+<b>what is a function prototype?why is it needed?</b></span><span style="font-size:large">
+function prototypes serve as a way of benchmarking the actual function which means it will check all the types and parameters present in the prototype against the actual function present.If there is any mismatch,it will throw an error.
+It is a way of making sure that all the data passed are respective and dedicated
+
+<b>difference between #define and typedef.where to use typedef and #define</b></span><span style="font-size:large">
+#define-simple token replacement.Works good for manifest constants.preprocessed.so fast.
+		But slow for big token replacements and will actually increase the code size as every instance of the variable will be replaced
+		will not be allocated any memory and only the tokens will be replaced
+
+typedef- used to alias the datatypes in common.it can alias any datatype to any other name.
+	      ensures portability of code for different compilers/machines without much effort.
+	      typedef understands the type of the variable provided in contrast to #define
+	      typedefs can be used to also replace the code sections but it is not used
+
+what is the use of structures?--&gt;To create custom datatypes as per the users need.
+						     You can unofficially call them syntactic sugars
+
+const is stored in code memory.
+const means the compiler would never allow the programmer to manually edit its value unintentionally.by means of this it is assured that the same value is maintained throughout the run of the program.
+
+example while(i=0) instead of while(i==0)
+if i is not const you may not catch this error easily.but if it is declared as const then you can find this error easily
+
+maximum speed of CAN bus is 1Mbps
+
+theoretically no of nodes supported is innumerous.maximum cable length is 40 m with highest data rate and 500 m with lowest data rate
+
+CAN alone cannot work.It is only implemented for physical and data link layer
+
+other protocols are used for the specification of the rest of the 5 layers
+
+of this one of the most important specification is J1939.Read more about J1939
+
+J1939 does not talk about session layer.it is based on PGN rather than ID as like CAN
+
+Read more about CAN.
+
+</span><b><span style="background:yellow"><span style="font-size:xx-large">Read about compilation proces.</span></span></b><span style="font-size:large">
+
+Read more about combustion engines
+
+Read more about glow plugs.thats more important
+
+what is plant modeling and what is control modeling?
+
+what is a finite state machine?read more about state machines and its basics
+
+<strike>what is a merge block in simulink?
+</strike></span><span style="font-size:large">
+difference between us and europe obd norms?
+
+what happens when i put diesel in petrol car and vice versa?
+
+what are the different fault codes present?
+
+what is KWP?read the overview about that protocol
+
+what is MIL?Read about MIL
+
+If I assign only two bits inside a structure,then what would be the size of the structure?
+it would be 8 bits for char,16 bits for int in 16 bit controller
+and 		   16 bits for char,32 bits for int in 32 bit controller
+
+2 bits cannot be assigned separately as only a chunk of byte can be allocated in real time
+
+<b>active and passive errors come under which errors?</b></span><span style="font-size:large">
+
+TEC(Transmission Error Counter) and REC(Receive Error Counter) are error counters which count the number of errors during transmission and reception respectively.
+
+There are 5 types of Errors.
+Bit Error
+Stuff Error
+Ack Error
+Form Error
+CRC Error
+
+So whenever any of these error occur the respective counter gets incremented.
+If TEC|REC&lt;127 then it is active error
+if 127&lt;TEC|REC&lt;255 then it is passive error
+if TEC|REC&gt;255 then it is bus off condition
+
+so active and passive errors happen for any kinds of error
+
+what is memory mapping?
+
+is there any significance between sign bit and any other bits?
+
+<b>what is the difference between canoe and canalyzer?</b></span><span style="font-size:large">
+
+canalyzer can simulate only one node whereas canoe can simulate multiple nodes in an ecu
+
+canalyzer is used to simulate only one node of an ecu whereas canoe is used to simulate multiple nodes.
+also environmental variables are used in canoe whereas they are not used in canalyzer
+
+<b>what are the different types of CAN frames?</b></span><span style="font-size:large">
+
+overload frame,error frame,data frame,remote frame
+
+<b>what are the different types of Errors?</b></span><span style="font-size:large">
+
+ack error,bit error,stuff error,crc error,frame error,form error
+
+<b>what is bus off?How to simulate that condition? 
+
+</b></span><span style="font-size:large">By means of bit stuffing,when the TEC(Transmit Error Counter) or REC(Receive Error Counter) are &gt;255 then the bus off condition will happen.
+whenever a error is detected during transmission or reception,the corresponding counter will get increased.
+bus off can be simulated by removing the connection between CAN 2.0 A and CAN 2.0 B
+<strike>
+
+</strike></span><span style="font-size:large">
+
+
+
+
+
+
+
+
+
+</span></div></body></html>

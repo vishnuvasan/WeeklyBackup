@@ -1,0 +1,216 @@
+<html xmlns:tomboy="http://beatniksoftware.com/tomboy" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size"><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"><title>MATLAB</title><style type="text/css">
+        
+	body {  }
+	h1 { font-size: xx-large;
+     	     font-weight: bold;
+     	     border-bottom: 1px solid black; }
+	div.note {
+		   position: relative;
+		   display: block;
+		   padding: 5pt;
+		   margin: 5pt; 
+		   white-space: -moz-pre-wrap; /* Mozilla */
+ 	      	   white-space: -pre-wrap;     /* Opera 4 - 6 */
+ 	      	   white-space: -o-pre-wrap;   /* Opera 7 */
+ 	      	   white-space: pre-wrap;      /* CSS3 */
+ 	      	   word-wrap: break-word;      /* IE 5.5+ */ }
+	</style></head><body><div class="note" id="MATLAB"><a name="matlab"></a><h1></h1><span style="font-size:large">
+
+<b>what is MAAB?</b></span><span style="font-size:large">
+
+MAAB-MATLAB Automotive Advisory Board which provide Modeling Guidelines
+
+<b>Tell Some Example Guidelines for MAAB?</b></span><span style="font-size:large">
+Some Rules<strike>
+
+</strike></span><span style="font-size:large"><b>difference between mux,demux,bus creator and bus selector?</b></span><span style="font-size:large">
+
+mux cant have different data typed signals as input while bus can have different data type signals.
+mux works with 2^n inputs and n outputs while demux would do the reverse with n inputs and 2^n outputs
+bus creator is used to create a bus while bus selector is used to select the respective signal based on the index<strike>
+
+</strike></span><span style="font-size:large"><b>what is a vector in MATLAB?how can a vector be represented?
+any vector can be represented by means of matrix representation in two or more rows?</b></span><span style="font-size:large">
+
+yes.vectors can be represented in two or more rows in matlab.
+
+<b>what are solvers?</b></span><span style="font-size:large">
+
+solvers are algorithms used to find the system output at every time instant.
+different types of solvers exist of which different type of algorithms are used like odeman-prince,bogacki-shampine  etc.
+Two types of solvers exist
+1.Fixed step size solver where the sample time is fixed in terms of 10ms,20ms etc.,
+2.Variable step size solver where the sample time is dynamically varied to get a more precise system response.
+   The underlying logic would be like it would predominantly captures the sample whenever there is a change in the output.
+
+<b>Difference between gain block and product block?</b></span><span style="font-size:large">
+</span><span style="font-size:small">
+<b><strike><span style="background:yellow"><span style="font-size:xx-large">gain block is used instead of product block because in product block,matrix size is to be determined and the input is to be given.but in gain unanimously all the elements in a matrix be multiplied by that factor.Answer is wrong both does the same operation when the multiplication parameter in product block is selected as element wise.But when selected as matrix wise in product block then the matrix multiplication is done</span></span></strike></b></span><strike><span style="background:yellow"><span style="font-size:xx-large"></span></span></strike><strike><span style="background:yellow"><span style="font-size:xx-large"><span style="font-size:large">
+</span></span></span></strike><span style="font-size:large"></span><span style="font-size:large"></span><span style="font-size:large">
+<b>what is Relay Block?</b></span><span style="font-size:large">
+
+Relay block is the replacement for hysteresis block.The output will follow the input until it is above a threshold.
+Say if A is the input,
+then if A&gt;Upper Threhold 					then output =1
+then if Lower Threshold &lt;A&lt;Upper Threshold 	then output =1
+then if A&lt;Lower Threhold					then output =0
+then if Lower Threshold&lt;A&lt;Upper Threshold		then output =0
+
+<b>how will you create delays inside simulink?</b></span><span style="font-size:large">
+
+Using Unit delay blocks,n integer delay blocks or tapped delay blocks(output is bus)
+
+<b>what are scopes?</b></span><span style="font-size:large">
+
+scopes are used to view the output of the variable.
+
+<b>what are test points?</b></span><span style="font-size:large">
+
+test points are a way of logging the data in simulink in similar to measuring points in ASCET
+
+<b>how will you send the output variable to the workspace?</b></span><span style="font-size:large">
+
+using simout block
+
+<b>how will you read a mat file?</b></span><span style="font-size:large">
+
+using from file block or using the load command
+
+<b>what is a signal builder?</b></span><span style="font-size:large">
+
+signal builders are a special type of blocks by which we can design our own inputs.we can design our own matrix to create our actual system inputs.we can build more than one signal in a signal builder by means of different groups.
+<b>
+what is m scripting?</b></span><span style="font-size:large">
+
+m scripting is a way to approach all the environmental aspects of the MATLAB tool.Also by means of m scripting we can create our own functions in line with c functions
+
+<b>what is tlc scripting?</b></span><span style="font-size:large">
+
+tlc is the acronym for target language compiler.it is a specific language in which the simulink generation targets are written in.
+So by means of tlc scripting,we can play around with the way a target behaves.Which indirectly means we can change the way the files are generated,their file names,their contents etc.,
+
+<b>what are s functions?</b></span><span style="font-size:large">
+
+s functions are another type of language available in matlab to access the simulink oriented functions.
+you can play around with the simulink blocks using s functions
+
+<b>what is legacy code converter?</b></span><span style="font-size:large">
+
+legacy code converters are a way of including your legacy c files in to matlab environment and thatsy the name.
+It uses the concept of mex files which are analogous of c/c++ compilation files in the matlab environment.
+so whenever we have a *.c file and *.h file which are independent of any other files,then we can create a standalone mex file which can simulate the same behaviour as that of the *.c and *h files.we can use this mex file to create a customized block with inputs and outputs.
+which means we have our legacy c file available in terms of a simulink block which can be used to model as like all the other blocks used inside the simulink environment.
+
+By means of Legacy code converter,we can convert any c file in to standalone block to be used inside the matlab environment via mex files.
+
+<b>what are Target Function Libraries or TFL?</b></span><span style="font-size:large">
+
+Target Function Libraries (TFL) are a way of customizing the actual function call generated during the code generation for all the standard matlab blocks.
+
+Say I have add block and I want to generate a function saying add_sl(x,y) instead of the usual + sign in the code,we can change the same in the target function libraries by altering the table present for each block against the mapped function<strike>.
+</strike></span><span style="font-size:large">
+By Target Function Libraries,we can only change the function call generated.And it can only be used for the existing matlab blocks in contrary to the creation of customized blocks in legacy code converter
+
+<b>can i create pointers in matlab?</b></span><span style="font-size:large">
+
+To Be Frank,Pointers are not the native datatypes in matlab infact matlab is written in such a way to avoid pointers.
+Pointers are a type of black art in matlab.
+But still this can be simulated using a handle object class in matlab.
+Create a class with a single object and you can access this object via structural syntaxes like a.b=45 like that.
+That is the only way to simulate pointers in matlab.one more feature which you would have used and not come across is </span><b><span style="background:yellow"><span style="font-size:xx-large">copy_on_write</span></span></b><span style="font-size:large"> variables.when i say x=x+2 the matlab compiler does not copy the variable and manipulate the calculation and store it again.
+Here the copying does not happen.The actual location itself is changed with the value.This is very similar to pointer methods by writing in to a memory location but these are not flexible enough for usage as they are matlab backend specific.<strike>
+
+</strike></span><span style="font-size:large"><b>what are the datatypes supported in matlab?</b></span><span style="font-size:large">
+
+uint8,uint16,int32
+int8,int16,int32
+short,long
+
+uint64 and int64 are not supported
+
+
+<b>Difference between Ground and Terminator block?</b></span><span style="font-size:large">
+
+ground block is used to dummy unconnected input ports whereas terminator block is used to dummy unconnected output ports
+
+
+<b>what is algebraic loop error in MATLAB?</b></span>
+<span style="font-size:large">
+whenever an output is directly connected to the input without any delay,then the output will be function of both output and input which makes the equation unsolvable
+
+y(t)=y(t)+x(t)
+
+This is called an algebraic loop error in MATLAB.
+
+In such cases a unit delay should be used to feedback the output to the input</span>.
+<strike>
+
+</strike><b><span style="background:yellow"><span style="font-size:xx-large">what are the different types of sub systems?</span></span></b><span style="font-size:large">
+
+virtual and non virtual sub systems.Read more about this
+Read more about the different types of sub systems available in simulink and their actual difference.
+Triggered,Enabled and Enabled-Triggered Sub Systems
+
+virtual subsystems are subsystems which provide graphical hierarchies and does not affect the execution of the system.
+whereas non virtual sub systems are sub systems which will execute if and only if all the inputs provided are valid.
+non virtual subsystems are drawn with bold line<strike>
+
+</strike></span><span style="font-size:large">Triggered subsystems are enabled by using an external trigger.A subsystem can have only one trigger.
+
+
+</span><b><span style="background:yellow"><span style="font-size:xx-large">what are the different parameters to be set in the configurations parameter window?</span></span></b><span style="font-size:large">
+
+</span><b><span style="background:yellow"><span style="font-size:xx-large">what are the different code optimization techniques present in simulink?</span></span></b>
+<span style="font-size:large">
+</span><b><span style="background:yellow"><span style="font-size:xx-large">what are the different targets available in simulink?</span></span></b>
+
+<b><span style="background:yellow"><span style="font-size:xx-large">what is PIL?why PIL is needed?</span></span></b>
+
+
+<b><span style="background:yellow"><span style="font-size:xx-large">what is the difference between scope and floating scope?</span></span></b>
+
+<span style="font-size:large">scope is used to display the signals where as floating scope is used to display the signals carried away in one or more input line</span>
+
+
+<b><span style="background:yellow"><span style="font-size:xx-large">what is the exact difference between subsystem and atomic subsystem?</span></span></b>
+
+<span style="font-size:large">subsystems are flattened during resolving the equation while atomic subsystems are sub systems which themselves are treated as individual subsystems(non virtual sub systems).
+which means the subsystem is executed very similiar to a separate function call</span>
+
+<b><span style="background:yellow"><span style="font-size:xx-large">Read More About Simulink Blocks?</span></span></b>
+
+<b><span style="background:yellow"><span style="font-size:xx-large">where are the Integrators and Differentiator blocks used in a model/system?
+
+Read about S Functions?</span></span></b><strike>
+
+</strike><b><span style="background:yellow"><span style="font-size:xx-large">Read more about Legacy coder and Target Function Libraries?</span></span></b>
+
+<b><span style="background:yellow"><span style="font-size:xx-large">where will you use hysteresis in a system perspective?</span></span></b>
+
+
+
+<b><span style="font-size:xx-large"><a style="color:#204A87" href="../StateFlow.html">StateFlow</a></span></b>
+
+
+
+
+
+<span style="font-size:large">
+<strike><a style="color:#204A87" href="../StateFlow.html">stateflow</a></strike></span><span style="font-size:large"><strike> can use matlab functions via the simulink function block.We can create sub functions inside <a style="color:#204A87" href="../StateFlow.html">stateflow</a></strike></span><span style="font-size:large"><strike> with that.It can also have m functions,truth tables via dedicated blocks</strike></span><span style="font-size:large">
+
+<strike>delays can be created inside <a style="color:#204A87" href="../StateFlow.html">stateflow</a></strike></span><span style="font-size:large"><strike> using local variables and also by the execution order.<b><span style="background:yellow">But this is to be clearly analyzed.Analysed and it is possible</span></b></strike></span><span style="font-size:large"></span><span style="font-size:large"></span><span style="font-size:large">
+
+<b><strike>Read More About Events in <span style="color:#555753;text-decoration:underline">StateFlow</span></strike></b></span><span style="font-size:large"><b><strike>
+Events are empty function calls which can invoke a transition in parallel processing state machines.
+Events can act as triggers or actions.Events are more powerful than the usual action sequences
+
+parallel processing state machines are not exactly parallel and the execution will happen only concurrently
+
+what is the difference between events and actions in <a style="color:#204A87" href="../StateFlow.html">stateflow</a></strike></b></span><span style="font-size:large"><b><strike>?
+an event can be used either as an action or condition.and events are very much useful in parallel processing states
+But In Contrary, actions are just statements which are executed during any of the state conditions like entry,during or exit
+</strike></b></span><span style="font-size:large"></span><span style="font-size:large">
+
+
+
+</span></div></body></html>
